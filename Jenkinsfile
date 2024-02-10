@@ -11,6 +11,7 @@ pipeline {
 
         stage('Docker Build and Push') {
             steps {
+              withDockerRegistry(credentialsId: "docker-hub") {
                 sh "printenv"
                 sh "docker build -t dsocouncil/node-service:v1 ."
                 sh "docker push dsocouncil/node-service:v1"
