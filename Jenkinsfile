@@ -16,6 +16,7 @@ pipeline {
                 sh "docker build -t dsocouncil/node-service:v1 ."
                 sh "docker push dsocouncil/node-service:v1"
             }
+            }
         }
     }
 }
