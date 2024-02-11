@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Talisman Scan') {
+            steps {
+                sh "talisman"
+            }
+        }
+        
         stage('Build Artifact') {
             steps {
                 sh "mvn clean package -DskipTests=true"
