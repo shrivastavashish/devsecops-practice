@@ -9,6 +9,13 @@ pipeline {
             }
         }
 
+        stage('SonarQube - SAST Analysis') {
+            steps {
+                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devsecops-sonarqube -Dsonar.projectName='devsecops-sonarqube' -Dsonar.host.url=http://35.197.23.84:9000 -Dsonar.token=sqp_b50609472c327e19573797cee59b19f5a389ffc1"
+                
+            }
+        }
+
         stage('Docker Build and Push') {
             steps {
                 withDockerRegistry(credentialsId: "docker-hub", url: "https://index.docker.io/v1/") {
