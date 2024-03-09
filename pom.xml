@@ -45,6 +45,17 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>9.0.9</version>
+				<configuration>
+					<format>ALL</format>
+					<failBuildOnCVSS>9</failBuildOnCVSS> <!-- fail the build for CVSS greater than or equal to 5 -->
+				</configuration>
+			</plugin>
+					
 			
 		</plugins>
 	</build>
