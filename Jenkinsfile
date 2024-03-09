@@ -12,7 +12,7 @@ pipeline {
         stage('SonarQube - SAST Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devsecops-sonarqube -Dsonar.host.url=http://35.197.23.84:9000 -Dsonar.login=sqp_02f168728a2b7ff1a6992a8c3561a59038206a2e"
+                sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devsecops-sonarqube -Dsonar.host.url=http://35.197.23.84:9000"
                 }
                 timeout(time: 2, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
